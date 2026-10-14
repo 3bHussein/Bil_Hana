@@ -1,0 +1,35 @@
+name: Fast-fill 100 recipe photos
+on:
+  push:
+    paths:
+      - fast_fill_photos.py
+      - .github/workflows/fast-fill-photos.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bil-hana-photo-fastfill
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - name: Fetch and bundle missing photos
+        run: python fast_fill_photos.py
+      - name: Save photo batch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/photos PROVISIONAL-PHOTO-SOURCES.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "photos: bulk import Commons photos for all remaining recipes"
+            git push
+          fi
