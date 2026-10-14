@@ -6,7 +6,7 @@ from PIL import Image
 ROOT=Path(__file__).resolve().parent
 entries=[
  ('seed0','Egyptian food Koshary.jpg','Dina Said','CC BY-SA 4.0'),
- ('seed2','Ful medames.jpg','Zachbe','CC BY-SA 3.0'),
+ ('seed3','Ful medames.jpg','Zachbe','CC BY-SA 3.0'),
  ('seed1','Molokhia.JPG','Showshow777','CC BY-SA 4.0'),
 ]
 out=ROOT/'assets/photos';out.mkdir(exist_ok=True,parents=True)
