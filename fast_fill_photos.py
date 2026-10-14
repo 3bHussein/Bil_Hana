@@ -47,7 +47,7 @@ def get(url):
 def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
 success=0
 for rid,ar,en in recipes:
-    if (rid in reviewed or rid in logged and any(row['recipe_id']==rid and 'KEYWORD MATCH' in row['match_status'] for row in records)) and rid in existing and (ROOT/manifest[rid]).exists(): continue
+    if (rid in reviewed or rid in logged and any(row['recipe_id']==rid and 'KEYWORD MATCH' in row['match_status'] and rid not in ('extra1','extra6','extra7','extra9','seed6') for row in records)) and rid in existing and (ROOT/manifest[rid]).exists(): continue
     # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
     query='filetype:bitmap '+en
@@ -57,7 +57,8 @@ for rid,ar,en in recipes:
         pages=list(payload.get('query',{}).get('pages',{}).values())
         pages.sort(key=lambda p:p.get('index',999))
         chosen=None
-        terms=[w.lower() for w in re.findall(r'[A-Za-z]{4,}',en) if w.lower() not in ('egyptian','with','and','soup','baked','fried','grilled','cream','stuffed')]
+        terms=[w.lower() for w in re.findall(r'[A-Za-z]{4,}',en) if w.lower() not in ('egyptian','with','and','soup','baked','fried','grilled','cream','stuffed','tomato','potato','rice','cheese','chicken','beef','meat','salad','sweet','milk','sauce','bread','pasta','cream')]
+        if not terms: terms=[w.lower() for w in re.findall(r'[A-Za-z]{4,}',en) if w.lower() not in ('egyptian','with','and','soup','baked','fried','grilled','cream','stuffed')]
         for p in pages:
             inf=(p.get('imageinfo') or [{}])[0];meta=inf.get('extmetadata') or {}
             lic=plain((meta.get('LicenseShortName') or {}).get('value',''))
