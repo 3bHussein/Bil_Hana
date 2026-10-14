@@ -86,6 +86,17 @@ priority_exclusions={
     'extra13':('city','village','deir'),
     'extra7':('schnitzel','chicken','steak'),
 }
+# A candidate is not acceptable merely because one dish keyword appears in its title.
+# For known false positives require multiple independent dish concepts.
+strict_concepts={
+    'extra2':(('chicken',),('potato','potatoes')),
+    'extra17':(('shrimp','prawn'),('tomato','garlic','alexandrian')),
+    'v19_6':(('oat','oatmeal'),('soup','broth')),
+    'v19_11':(('fava','ful','foul','bean'),('egg','eggs')),
+    'extra6':(('cheese',),('tomato','tomatoes')),
+    'v19_40':(('onion','onions'),('stuffed','dolma')),
+    'v19_42':(('white',),('bean','beans')),
+}
 success=0
 # Audit-only by default: the importer must never silently overwrite existing provisional images.
 # Explicitly set PHOTO_REPLACE_IDS to a comma-separated list of reviewed recipe IDs.
@@ -111,6 +122,7 @@ for rid,ar,en in recipes:
             url=inf.get('thumburl') or inf.get('url','')
             if not url or not re.search(r'\.(jpg|jpeg|png|webp)(\?|$)',url,re.I):continue
             title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
+            if rid in strict_concepts and not all(any(word in title for word in group) for group in strict_concepts[rid]): continue
             if rid in priority_terms:
                 if not any(w in title for w in priority_terms[rid]): continue
                 if any(bad in title for bad in priority_exclusions.get(rid,())): continue
