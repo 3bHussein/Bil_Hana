@@ -1,0 +1,41 @@
+name: Research next recipe photo batch
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: Recipes to research
+        required: true
+        type: choice
+        default: '20'
+        options:
+          - '10'
+          - '20'
+permissions:
+  contents: write
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Research candidates
+        env:
+          PHOTO_BATCH_SIZE: ${{ inputs.batch_size }}
+        run: python research_photo_batch.py
+      - name: Upload review queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: photo-review-candidates
+          path: PHOTO-RESEARCH-NEXT.csv
+      - name: Commit review queue
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PHOTO-RESEARCH-NEXT.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "photos: research next batch of candidate images"
+            git push
+          fi
