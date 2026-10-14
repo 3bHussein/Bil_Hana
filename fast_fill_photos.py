@@ -54,9 +54,9 @@ def get(url):
 def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
 # Explicit searches for recipes with known wrong photos; do not fall back to broad food results.
 priority_queries={
-    'extra2':'chicken potato casserole',
+    'extra2':'roasted chicken potatoes tray',
     'extra13':'tulumba dessert',
-    'extra17':'cooked shrimp prawns',
+    'extra17':'shrimp tomato garlic dish',
     'v19_6':'oatmeal soup',
     'v19_11':'fava beans eggs',
     'extra6':'aged cheese tomatoes',
@@ -67,9 +67,9 @@ priority_queries={
     'v19_52':'basbousa semolina cake',
 }
 priority_terms={
-    'extra2':('chicken','potato'),
+    'extra2':('chicken and potato','chicken potatoes','chicken with potatoes','chicken potato'),
     'extra13':('tulumba',),
-    'extra17':('shrimp','prawn'),
+    'extra17':('shrimp tomato','shrimp garlic','prawn tomato','prawn garlic'),
     'v19_6':('oat','oatmeal'),
     'v19_11':('fava','beans'),
     'extra6':('cheese',),
@@ -78,6 +78,13 @@ priority_terms={
     'v19_42':('white bean',),
     'extra15':('bread roll','flatbread'),
     'v19_52':('basbousa','semolina cake'),
+}
+# Reject obviously unsuitable presentations even when their names contain the dish.
+priority_exclusions={
+    'extra2':('king ranch','tortilla','enchilada','mexican'),
+    'extra17':('frozen','raw','package','packaged','uncooked'),
+    'extra13':('city','village','deir'),
+    'extra7':('schnitzel','chicken','steak'),
 }
 success=0
 for rid,ar,en in recipes:
@@ -102,6 +109,7 @@ for rid,ar,en in recipes:
             title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
             if rid in priority_terms:
                 if not any(w in title for w in priority_terms[rid]): continue
+                if any(bad in title for bad in priority_exclusions.get(rid,())): continue
             elif not terms or not any(w in title for w in terms): continue
             # Never use another named dish or a generic Egyptian-food image as a substitute.
             forbidden=('koshary','kosheri','pyramid','risotto','salmon','chocolate cake','countryfriedsteak','nian gao','logo','plant','collage','food sources')
