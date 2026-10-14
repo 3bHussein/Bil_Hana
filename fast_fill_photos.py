@@ -2,7 +2,7 @@
 """Fast-fill all Bil Hana recipe images from openly licensed Commons files.
 Provisional matches are logged separately from manually verified PHOTO-CREDITS.csv.
 """
-import csv, html, io, json, os, re, time, urllib.parse, urllib.request
+import csv, html, io, json, os, re, time, urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 from PIL import Image, ImageOps
 
@@ -42,7 +42,14 @@ agent={'User-Agent':'BilHanaRecipePhotoBot/1.0 (github.com/3bHussein/Bil_Hana; W
 
 def get(url):
     req=urllib.request.Request(url,headers=agent)
-    with urllib.request.urlopen(req,timeout=28) as response:return response.read()
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(req,timeout=28) as response:return response.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (429,503) or attempt==4: raise
+            wait=min(60, 5*(2**attempt))
+            print('RATE LIMITED; waiting',wait,'seconds',flush=True)
+            time.sleep(wait)
 
 def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
 success=0
@@ -93,7 +100,7 @@ for rid,ar,en in recipes:
     except Exception as exc:print('FAILED',rid,str(exc)[:180],flush=True)
     if success and success%15==0:
         print('Checkpoint',success,flush=True)
-    time.sleep(.1)
+    time.sleep(2.5)
 with logpath.open('w',encoding='utf-8',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=headers);writer.writeheader();writer.writerows(records)
 new=json.dumps(manifest,ensure_ascii=False)
