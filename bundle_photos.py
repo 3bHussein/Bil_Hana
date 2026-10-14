@@ -9,22 +9,19 @@ ROOT=Path(__file__).resolve().parent
 HTML=ROOT/'index.html'
 PHOTOS=ROOT/'assets'/'photos'
 ALLOWED={'.jpg','.jpeg','.png','.webp','.avif'}
+# Only publish photos with a matching, explicit attribution record.
 files={}
-for p in sorted(PHOTOS.iterdir()):
-    if p.suffix.lower() not in ALLOWED: continue
-    if not re.fullmatch(r'(seed|extra)\d+',p.stem):
-        print('SKIP invalid recipe ID:',p.name);continue
-    if p.stat().st_size>4*1024*1024:
-        print('SKIP photo >4MB:',p.name);continue
-    files[p.stem]='assets/photos/'+p.name
-# Map reviewed photo filenames to their actual recipe IDs.
 with (ROOT/'PHOTO-CREDITS.csv').open(encoding='utf-8-sig',newline='') as fh:
     for row in csv.DictReader(fh):
-        photo=PHOTOS/row['filename']
-        if photo.is_file() and re.fullmatch(r'(seed|extra)\d+',row['recipe_id']):
-            files[row['recipe_id']]='assets/photos/'+photo.name
-            if photo.stem!=row['recipe_id']:
-                files.pop(photo.stem,None)
+        recipe=row.get('recipe_id','')
+        filename=row.get('filename','')
+        if not re.fullmatch(r'(?:seed|extra|v19_)\d+',recipe): continue
+        if Path(filename).name!=filename: continue
+        photo=PHOTOS/filename
+        if photo.suffix.lower() not in ALLOWED or not photo.is_file(): continue
+        if photo.stat().st_size>4*1024*1024: continue
+        if not all(row.get(key,'').strip() for key in ('photographer','source_url','license')): continue
+        files[recipe]='assets/photos/'+filename
 html=HTML.read_text(encoding='utf-8')
 pattern=r'(<script id="bh-photo-manifest" type="application/json">).*?(</script>)'
 html,n=re.subn(pattern,lambda m:m.group(1)+json.dumps(files,ensure_ascii=False)+m.group(2),html,count=1,flags=re.S)
