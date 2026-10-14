@@ -29,6 +29,9 @@ recipes=list(dict((r[0],r) for r in recipes).values())
 print('Parsed',len(recipes),'recipes',flush=True)
 if len(recipes)<90: raise RuntimeError('Recipe parser found fewer than 90 recipes; abort to avoid bad mapping')
 existing=set(manifest)
+# Recheck provisional images, while preserving the original reviewed photo set.
+reviewed={'seed0','seed1','seed2','seed4','seed5','seed7','seed8','seed10','seed12','seed13','seed15','seed16','extra5'}
+
 logpath=ROOT/'PROVISIONAL-PHOTO-SOURCES.csv'
 records=[]
 if logpath.exists():
@@ -44,24 +47,27 @@ def get(url):
 def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
 success=0
 for rid,ar,en in recipes:
-    if rid in existing and (ROOT/manifest[rid]).exists(): continue
+    if rid in reviewed and rid in existing and (ROOT/manifest[rid]).exists(): continue
     # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
-    query='filetype:bitmap Egyptian cuisine'
-    params={'action':'query','generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'15','prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':'900','format':'json'}
+    query='filetype:bitmap '+en
+    params={'action':'query','generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'30','prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':'900','format':'json'}
     try:
         payload=json.loads(get('https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(params)))
         pages=list(payload.get('query',{}).get('pages',{}).values())
         pages.sort(key=lambda p:p.get('index',999))
         chosen=None
+        terms=[w.lower() for w in re.findall(r'[A-Za-z]{4,}',en) if w.lower() not in ('egyptian','with','and','soup','baked','fried','grilled','cream','stuffed')]
         for p in pages:
             inf=(p.get('imageinfo') or [{}])[0];meta=inf.get('extmetadata') or {}
             lic=plain((meta.get('LicenseShortName') or {}).get('value',''))
             if not (lic.startswith('CC BY') or lic in ('CC0','Public domain')):continue
             url=inf.get('thumburl') or inf.get('url','')
             if not url or not re.search(r'\.(jpg|jpeg|png|webp)(\?|$)',url,re.I):continue
+            title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
+            if not terms or not any(w in title for w in terms): continue
             chosen=(p,inf,meta,lic,url);break
-        if not chosen:print('NO LICENSED MATCH',rid,en,flush=True);continue
+        if not chosen:print('NO RELEVANT LICENSED MATCH',rid,en,flush=True);continue
         p,inf,meta,lic,url=chosen
         blob=get(url)
         with Image.open(io.BytesIO(blob)) as im:
@@ -69,8 +75,8 @@ for rid,ar,en in recipes:
             im.thumbnail((900,700))
             im.save(OUT/(rid+'.webp'),'WEBP',quality=79,method=4)
         manifest[rid]='assets/photos/'+rid+'.webp'
-        if rid not in logged:
-            records.append(dict(recipe_id=rid,arabic_name=ar,english_name=en,commons_page=inf.get('descriptionurl',''),license=lic,artist=plain((meta.get('Artist') or {}).get('value','')),match_status='PROVISIONAL - REVIEW DISH MATCH'))
+        records=[row for row in records if row['recipe_id']!=rid]
+        records.append(dict(recipe_id=rid,arabic_name=ar,english_name=en,commons_page=inf.get('descriptionurl',''),license=lic,artist=plain((meta.get('Artist') or {}).get('value','')),match_status='PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW'))
         success+=1
         print('IMPORTED',rid,en,p.get('title'),flush=True)
     except Exception as exc:print('FAILED',rid,str(exc)[:180],flush=True)
