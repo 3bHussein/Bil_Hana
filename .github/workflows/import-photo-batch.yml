@@ -1,0 +1,44 @@
+name: Import photo batch (10 or 20)
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: Maximum approved photos to import
+        required: true
+        type: choice
+        default: '10'
+        options:
+          - '10'
+          - '20'
+permissions:
+  contents: write
+concurrency:
+  group: recipe-photo-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Import reviewed images only
+        env:
+          PHOTO_BATCH_SIZE: ${{ inputs.batch_size }}
+        run: python import_photo_batch.py
+      - name: Validate
+        run: |
+          python verify_assets.py
+          python verify_photo_licenses.py
+      - name: Commit validated photo batch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html PHOTO-CREDITS.csv assets/photos/
+          if ! git diff --cached --quiet; then
+            git commit -m "photos: import approved recipe photo batch"
+            git push
+          fi
