@@ -1,21 +1,9 @@
 recipe_id,arabic_name,english_name,commons_page,license,artist,match_status
-v19_2,شوربة فراخ,Chicken Soup,https://commons.wikimedia.org/wiki/File:Chicken_noodle_soup_(cropped).jpg,CC BY 2.0,"Eli Hodapp from Naperville, United States",PROVISIONAL - REVIEW DISH MATCH
 v19_3,شوربة كوارع,Trotter Soup,https://commons.wikimedia.org/wiki/File:Nam_sup.jpg,CC BY-SA 3.0,Takeaway,PROVISIONAL - REVIEW DISH MATCH
 v19_4,شوربة فريك,Freekeh Soup,https://commons.wikimedia.org/wiki/File:%D8%B4%D8%B1%D8%A8%D8%A9_%D9%81%D8%B1%D9%8A%D9%83.jpg,CC BY-SA 4.0,Emna Mizouni,PROVISIONAL - REVIEW DISH MATCH
-v19_5,شوربة حمص,Chickpea Soup,https://commons.wikimedia.org/wiki/File:Chickpea_Noodle_Soup_(140491185).jpeg,CC BY 3.0,J Doll,PROVISIONAL - REVIEW DISH MATCH
 v19_6,شوربة شوفان,Oat Soup,https://commons.wikimedia.org/wiki/File:Food_sources_of_magnesium_(magnesium-rich_foods).jpg,CC BY-SA 4.0,SSamadi15,PROVISIONAL - REVIEW DISH MATCH
-v19_7,شوربة كريمة المشروم,Creamy Mushroom Soup,https://commons.wikimedia.org/wiki/File:Creamy_mushroom_soup_and_malt_bread_at_restaurant_Frans_%26_Am%C3%A9lie.jpg,CC BY-SA 4.0,JIP,PROVISIONAL - REVIEW DISH MATCH
-v19_8,شوربة بطاطس,Potato Soup,https://commons.wikimedia.org/wiki/File:HK_food_sweet_potato_soup_ginger_water_%E5%A7%9C%E6%B1%81_%E7%95%AA%E8%96%AF%E7%B3%96%E6%B0%B4_Feb-2014.JPG,CC BY-SA 3.0,Poerosrojusam,PROVISIONAL - REVIEW DISH MATCH
-v19_9,شوربة عدس بجبة,Brown Lentil Soup,https://commons.wikimedia.org/wiki/File:Vegan_brown_lentil_soup.jpg,CC0,Trashpossum666,PROVISIONAL - REVIEW DISH MATCH
 v19_11,فول بالبيض,Fava Beans with Eggs,https://commons.wikimedia.org/wiki/File:Food_sources_of_magnesium_(magnesium-rich_foods).jpg,CC BY-SA 4.0,SSamadi15,PROVISIONAL - REVIEW DISH MATCH
-v19_30,مكرونة بالسجق,Pasta with Sausage,https://commons.wikimedia.org/wiki/File:Grilled_Italian_Sausage_with_noodles.jpg,CC BY-SA 4.0,Robert Loescher,PROVISIONAL - REVIEW DISH MATCH
-v19_32,كبدة بالبصل,Liver with Onions,https://commons.wikimedia.org/wiki/File:Chicken_Livers.jpg,CC BY 2.0,Joe Foodie,PROVISIONAL - REVIEW DISH MATCH
-v19_33,فراخ مشوية,Egyptian Grilled Chicken,https://commons.wikimedia.org/wiki/File:Arabic_grilled_chicken_with_Egyptian_pickle.jpg,CC BY 2.0,Mohamod  Fasil,PROVISIONAL - REVIEW DISH MATCH
-v19_34,فراخ بانيه,Breaded Chicken Cutlets,https://commons.wikimedia.org/wiki/File:CountryFriedSteak.jpg,CC BY-SA 2.5,No machine-readable author provided. Bloodshedder~commonswiki assumed (based on copyright claims).,PROVISIONAL - REVIEW DISH MATCH
-v19_35,فراخ محمرة,Golden Roasted Chicken,https://commons.wikimedia.org/wiki/File:Home_made_roasted_chicken.jpg,CC BY-SA 4.0,Roderick Suñaz Sumalinog,PROVISIONAL - REVIEW DISH MATCH
-v19_37,محشي كوسة,Stuffed Zucchini,https://commons.wikimedia.org/wiki/File:Kabak_%C3%A7i%C3%A7e%C4%9Fi_dolma.jpg,CC BY-SA 4.0,E4024,PROVISIONAL - REVIEW DISH MATCH
 v19_38,محشي باذنجان,Stuffed Eggplant,https://commons.wikimedia.org/wiki/File:Stuffed_Eggplant_curry.jpg,CC BY-SA 4.0,Tanyadesigan,PROVISIONAL - REVIEW DISH MATCH
-v19_39,محشي فلفل,Stuffed Peppers,"https://commons.wikimedia.org/wiki/File:Stuffed_red_peppers,_dark_rye_bread,_Rostov-on-Don,_Russia.jpg",CC BY 4.0,Vyacheslav Argenberg,PROVISIONAL - REVIEW DISH MATCH
 seed14,رقاق باللحمة,Meat-Filled Ruqaq,https://commons.wikimedia.org/wiki/File:Meat_Filled_Dumplings_(15246789578).jpg,CC BY-SA 2.0,Willis Lam,PROVISIONAL - REVIEW DISH MATCH
 extra2,بطاطس صينية بالفراخ,Chicken and Potato Traybake,https://commons.wikimedia.org/wiki/File:Gallus_gallus_domesticus_-_Vogelpark_Steinen_03.jpg,CC BY-SA 3.0,H. Zell,PROVISIONAL - REVIEW DISH MATCH
 extra11,قطايف بالمكسرات,Qatayef with Nuts,https://commons.wikimedia.org/wiki/File:%D9%82%D8%B7%D8%A7%D9%8A%D9%81_%D9%85%D8%AD%D8%B4%D9%88%D8%A9_%D8%A8%D8%A7%D9%84%D8%AC%D8%A8%D9%86.jpg,CC BY-SA 4.0,Fjmustak,PROVISIONAL - REVIEW DISH MATCH
@@ -23,49 +11,28 @@ extra13,بلح الشام,Balah El Sham,https://commons.wikimedia.org/wiki/File:
 extra16,سمك سنجاري,Sengari Fish,https://commons.wikimedia.org/wiki/File:Sengari01.JPG,CC BY-SA 3.0,Jnn。,PROVISIONAL - REVIEW DISH MATCH
 extra17,جمبري إسكندراني,Alexandrian Shrimp,https://commons.wikimedia.org/wiki/File:Senna_alexandrina_Mill.-Cassia_angustifolia_L._(Senna_Plant).jpg,CC BY 2.0,Lalithamba from India,PROVISIONAL - REVIEW DISH MATCH
 extra19,حمام محشي فريك,Pigeon with Freekeh,https://commons.wikimedia.org/wiki/File:Freekeh_with_roasted_vegetables.jpg,CC BY 2.0,Kristen Taylor,PROVISIONAL - REVIEW DISH MATCH
-extra20,كشك مصري,Egyptian Kishk,https://commons.wikimedia.org/wiki/File:Mongolian_dried_yogurt.jpg,CC0,Syced,PROVISIONAL - REVIEW DISH MATCH
 extra21,قلقاس بالسلق,Taro with Chard,https://commons.wikimedia.org/wiki/File:Bl%C3%A4tter_vom_Roten_Mangold_(Chard).jpg,CC BY-SA 4.0,August Geyler,PROVISIONAL - REVIEW DISH MATCH
-extra22,بسلة بالجزر,Peas and Carrots,https://commons.wikimedia.org/wiki/File:Carrots_of_many_colors.jpg,Public domain,Stephen Ausmus,PROVISIONAL - REVIEW DISH MATCH
-extra23,سبانخ باللحمة,Spinach with Beef,https://commons.wikimedia.org/wiki/File:DoughnDolce_Beef_Sandwich.jpg,CC BY-SA 4.0,Vincent60030,PROVISIONAL - REVIEW DISH MATCH
-v19_0,شوربة خضار,Vegetable Soup,https://commons.wikimedia.org/wiki/File:Asparagus_soup_(spargelsuppe).jpg,CC BY-SA 4.0,Petar Milošević,PROVISIONAL - REVIEW DISH MATCH
-v19_1,شوربة طماطم,Tomato Soup,https://commons.wikimedia.org/wiki/File:Asparagus_soup_(spargelsuppe).jpg,CC BY-SA 4.0,Petar Milošević,PROVISIONAL - REVIEW DISH MATCH
 v19_10,فول بالطحينة,Fava Beans with Tahini,https://commons.wikimedia.org/wiki/File:Tahini_Production-Mosul_01.jpg,CC BY-SA 4.0,Abdulsalam Al Dabbagh,PROVISIONAL - REVIEW DISH MATCH
 v19_12,فول إسكندراني,Alexandrian Fava Beans,https://commons.wikimedia.org/wiki/File:Pinto_Beans_Seeds.jpg,CC BY-SA 4.0,Sanjay Acharya,PROVISIONAL - REVIEW DISH MATCH
 v19_45,باذنجان بالصلصة,Eggplant in Tomato Sauce,https://commons.wikimedia.org/wiki/File:Sauce_Corrientes.JPG,CC BY-SA 3.0,Saucecorrientes,PROVISIONAL - REVIEW DISH MATCH
-v19_46,صينية خضار بالفرن,Oven-Baked Vegetables,https://commons.wikimedia.org/wiki/File:Child_working_selling_vegetables_in_downtown_Maracaibo.jpg,CC0,Wilfredor,PROVISIONAL - REVIEW DISH MATCH
 v19_47,طاجن سمك,Egyptian Fish Casserole,https://commons.wikimedia.org/wiki/File:2021_Zapiekanka_ziemniaczana_z_beszamelem.jpg,CC BY-SA 4.0,Jacek Halicki,PROVISIONAL - REVIEW DISH MATCH
-v19_48,سمك مقلي,Egyptian Fried Fish,"https://commons.wikimedia.org/wiki/File:Oweston_sting_fish_for_sale_at_Tsukiji_Fishmarket,_Tokyo-30.jpg",CC BY-SA 3.0,MichaelMaggs,PROVISIONAL - REVIEW DISH MATCH
-v19_49,جمبري مشوي,Grilled Shrimp,https://commons.wikimedia.org/wiki/File:A_heap_of_shrimp_shells_on_a_plate_in_Tuntorp_1.jpg,CC BY-SA 4.0,W.carter,PROVISIONAL - REVIEW DISH MATCH
 v19_50,كنافة بالمانجو,Mango Kunafa,"https://commons.wikimedia.org/wiki/File:Knafeh_in_Nazareth,_Israel.png",CC0,PeleYoetz,PROVISIONAL - REVIEW DISH MATCH
 v19_51,بسبوسة بالقشطة,Cream-Filled Basbousa,https://commons.wikimedia.org/wiki/File:Basboosa.jpg,CC BY-SA 2.0,stu_spivack,PROVISIONAL - REVIEW DISH MATCH
 v19_52,هريسة سميد,Egyptian Semolina Harissa,"https://commons.wikimedia.org/wiki/File:Harissa,_Lebanon_2010.jpg",CC BY-SA 3.0,Elmondo21st,PROVISIONAL - REVIEW DISH MATCH
 v19_53,كيك البرتقال,Egyptian Orange Cake,https://commons.wikimedia.org/wiki/File:Piece_of_chocolate_cake_on_a_white_plate_decorated_with_chocolate_sauce.jpg,CC0,Daria YakovlevaMinor edits made by Subsidiary account,PROVISIONAL - REVIEW DISH MATCH
 v19_54,زلابية,Egyptian Zalabia,https://commons.wikimedia.org/wiki/File:Jalebi_Colors.JPG,CC BY-SA 4.0,Sankeerth,PROVISIONAL - REVIEW DISH MATCH
-v19_20,أرز بالشعرية,Vermicelli Rice,https://commons.wikimedia.org/wiki/File:%D8%B5%D9%88%D8%B1%D8%A9_%D9%84%D8%A8%D8%B9%D8%B6_%D8%A7%D9%84%D8%A3%D9%83%D9%84%D8%A7%D8%AA_%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9.jpeg,CC0,Afek91,PROVISIONAL - REVIEW DISH MATCH
-v19_21,أرز معمر,Baked Milk Rice,https://commons.wikimedia.org/wiki/File:Perennial_rice_seeds.JPG,CC BY-SA 3.0 us,Desmanthus4food,PROVISIONAL - REVIEW DISH MATCH
 extra18,صيادية سمك,Fish Sayadeya,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_13,بيض بالبسطرمة,Eggs with Basturma,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_14,عجة مصرية,Egyptian Herb Omelet,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_15,جبنة قريش بالخضرة,Cottage Cheese with Herbs,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_16,بطاطس بالبيض,Potatoes with Eggs,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_17,باذنجان مخلل,Pickled Eggplant,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_18,سلطة زبادي بالخيار,Cucumber Yogurt Salad,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_19,دقة مصرية,Egyptian Dukkah,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_22,أرز بالخلطة,Egyptian Spiced Rice,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_23,صينية كفتة بالبطاطس,Kofta Potato Bake,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_24,داوود باشا,Dawood Basha Meatballs,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_25,كفتة أرز,Rice Kofta,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_26,طاجن بامية,Okra Casserole,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_27,طاجن بطاطس باللحمة,Beef and Potato Casserole,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_28,طاجن مكرونة باللحمة,Baked Pasta with Beef,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_29,مكرونة بالصلصة,Egyptian Tomato Pasta,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_31,سجق إسكندراني,Alexandrian Sausage,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_36,فتة شاورما فراخ,Chicken Shawarma Fatta,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_40,محشي بصل,Stuffed Onions,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_41,لوبيا بالصلصة,Black-Eyed Peas Stew,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_42,فاصوليا بيضاء,White Bean Stew,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_43,فاصوليا خضراء,Green Bean Stew,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
-v19_44,قرنبيط مقلي,Fried Cauliflower,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_55,غريبة,Egyptian Ghorayeba,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_56,بيتي فور,Egyptian Petit Fours,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
 v19_57,كحك بالعجوة,Date-Filled Kahk,https://commons.wikimedia.org/wiki/File:Egyptian_food_Koshary.jpg,CC BY-SA 4.0,Dina Said,PROVISIONAL - REVIEW DISH MATCH
@@ -81,8 +48,41 @@ extra6,جبنة قديمة بالطماطم,Aged Cheese with Tomato,https://comm
 extra8,سلطة بلدي,Baladi Salad,https://commons.wikimedia.org/wiki/File:Salata_baladi.jpg,CC BY-SA 4.0,أحمد ناجي,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
 extra10,كنافة بالقشطة,Kunafa with Cream,https://commons.wikimedia.org/wiki/File:Cream_cheese_kunafa.jpg,CC BY-SA 4.0,Ayshamarjana,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
 extra12,مهلبية,Milk Pudding,https://commons.wikimedia.org/wiki/File:Mhallabiyyeh_(Arabic_milk_pudding).jpg,CC BY-SA 4.0,Jktab,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+extra14,عيش بلدي,Baladi Bread,https://commons.wikimedia.org/wiki/File:Baladi_bread.JPG,Public domain,Cairocamels B. Simpson,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+extra15,قرص فلاحي,Country Bread Rolls,https://commons.wikimedia.org/wiki/File:HOMEMADE_BREAD_AND_SWEET_ROLLS_ARE_MADE_DAILY_BY_JIM_TILLMAN_OF_TILLMAN%27S_BAKERY._IT_IS_THE_ONLY_ONE_REMAINING_THAT..._-_NARA_-_558361.jpg,Public domain,"Haque, Abul, Photographer (NARA record: 8467822)","PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
 seed6,مسقعة,Moussaka,"https://commons.wikimedia.org/wiki/File:Moussaka_in_Jerusalem,_Israel.png",CC0,PeleYoetz,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
 extra7,سلطة طحينة,Tahini Salad,"https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Schnitzel_with_Israeli_Salad,_Rice,_and_Cauliflower_with_Tahini.jpg",CC BY-SA 4.0,HaJunkiyada,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
 extra9,بطاطس محمرة,Fried Potatoes,https://commons.wikimedia.org/wiki/File:Frying_potatoes.jpg,CC BY-SA 2.5,,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
-extra14,عيش بلدي,Baladi Bread,https://commons.wikimedia.org/wiki/File:Baladi_bread.JPG,Public domain,Cairocamels B. Simpson,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
-extra15,قرص فلاحي,Country Bread Rolls,https://commons.wikimedia.org/wiki/File:HOMEMADE_BREAD_AND_SWEET_ROLLS_ARE_MADE_DAILY_BY_JIM_TILLMAN_OF_TILLMAN%27S_BAKERY._IT_IS_THE_ONLY_ONE_REMAINING_THAT..._-_NARA_-_558361.jpg,Public domain,"Haque, Abul, Photographer (NARA record: 8467822)","PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+extra20,كشك مصري,Egyptian Kishk,https://commons.wikimedia.org/wiki/File:Abdelhamid-kishk-4.jpg,Public domain,Akishk,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+extra22,بسلة بالجزر,Peas and Carrots,https://commons.wikimedia.org/wiki/File:02023_0181_meatballs_and_potatoes_with_peas_and_carrots_stew.jpg,CC BY-SA 4.0,Silar,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+extra23,سبانخ باللحمة,Spinach with Beef,"https://commons.wikimedia.org/wiki/File:Butter_Chicken,_Beef_Masala,_Spinach%2BPotato,_rice,_roti_-_Zam_Zam_AUD8.50_(4833724931).jpg",CC BY-SA 2.0,"Alpha from Melbourne, Australia","PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_0,شوربة خضار,Vegetable Soup,https://commons.wikimedia.org/wiki/File:Vegetable_soup_8.jpg,CC BY-SA 4.0,Gannu03,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_1,شوربة طماطم,Tomato Soup,https://commons.wikimedia.org/wiki/File:Empty_tomato_soup_dish_and_wine_glass.jpg,CC0,Kotivalo,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_2,شوربة فراخ,Chicken Soup,https://commons.wikimedia.org/wiki/File:Chicken_soup_with_kreplach.jpg,CC BY-SA 2.0,stu_spivack,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_5,شوربة حمص,Chickpea Soup,https://commons.wikimedia.org/wiki/File:Chickpea_Noodle_Soup_(140491185).jpeg,CC BY 3.0,J Doll,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_7,شوربة كريمة المشروم,Creamy Mushroom Soup,https://commons.wikimedia.org/wiki/File:Creamy_mushroom_soup_and_malt_bread_at_restaurant_Frans_%26_Am%C3%A9lie.jpg,CC BY-SA 4.0,JIP,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_8,شوربة بطاطس,Potato Soup,https://commons.wikimedia.org/wiki/File:Cauliflower_and_potato_soup_-_T_@_Hove_2023-10-22.jpg,CC0,Andy Li,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_9,شوربة عدس بجبة,Brown Lentil Soup,https://commons.wikimedia.org/wiki/File:Vegan_brown_lentil_soup.jpg,CC0,Trashpossum666,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_13,بيض بالبسطرمة,Eggs with Basturma,"https://commons.wikimedia.org/wiki/File:Beef_Basturma_and_fried_egg_taco_with_chile_de_arbol,_pickled_onion,_cilantro.jpg",CC BY 2.0,T.Tseng,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_16,بطاطس بالبيض,Potatoes with Eggs,"https://commons.wikimedia.org/wiki/File:Roasted_potatoes_with_garlic_mayonnaise,_smoked_oysters,_hard-boiled_eggs,_and_cornichons,_all_cold_-_Massachusetts.jpg",CC0,Daderot,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_18,سلطة زبادي بالخيار,Cucumber Yogurt Salad,https://commons.wikimedia.org/wiki/File:Cucumber_pachadi-_My_home_Bangalore_-Karnataka_-pic_08.jpg,CC BY-SA 4.0,Shruthi Gaurav Alva,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_19,دقة مصرية,Egyptian Dukkah,https://commons.wikimedia.org/wiki/File:Du%27ah_(dukkah)_-_Egyptian_spice_mix.JPG,CC BY-SA 4.0,Abissada,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_20,أرز بالشعرية,Vermicelli Rice,https://commons.wikimedia.org/wiki/File:Whole-grain_rice_vermicelli_noodles_(Thai).jpg,CC BY-SA 4.0,Susan Slater,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_21,أرز معمر,Baked Milk Rice,https://commons.wikimedia.org/wiki/File:Rice_Non-Dairy_Milk_(5083001476).jpg,CC BY-SA 2.0,Veganbaking.net from USA,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_25,كفتة أرز,Rice Kofta,https://commons.wikimedia.org/wiki/File:NargisiKoftaRice.jpg,CC BY-SA 4.0,Satcreak,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_28,طاجن مكرونة باللحمة,Baked Pasta with Beef,https://commons.wikimedia.org/wiki/File:Baked_pasta_with_beef_tongue_from_Tiger_Cafe.jpg,CC BY-SA 4.0,Peachyeung316,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_30,مكرونة بالسجق,Pasta with Sausage,https://commons.wikimedia.org/wiki/File:Grilled_Italian_Sausage_with_noodles.jpg,CC BY-SA 4.0,Robert Loescher,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_32,كبدة بالبصل,Liver with Onions,https://commons.wikimedia.org/wiki/File:Chicken_Livers.jpg,CC BY 2.0,Joe Foodie,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_33,فراخ مشوية,Egyptian Grilled Chicken,https://commons.wikimedia.org/wiki/File:Arabic_grilled_chicken_with_Egyptian_pickle.jpg,CC BY 2.0,Mohamod  Fasil,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_34,فراخ بانيه,Breaded Chicken Cutlets,https://commons.wikimedia.org/wiki/File:Breaded_chicken_cutlet_with_pistachios_and_dry_tomatoes_(24229177193).jpg,CC BY 2.0,"Luca Nebuloni from Milan, Italy","PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_35,فراخ محمرة,Golden Roasted Chicken,https://commons.wikimedia.org/wiki/File:Home_made_roasted_chicken.jpg,CC BY-SA 4.0,Roderick Suñaz Sumalinog,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_37,محشي كوسة,Stuffed Zucchini,https://commons.wikimedia.org/wiki/File:Stuffed_Zucchini_Cooking_in_Newton_Massachusetts.jpg,CC BY-SA 4.0,EgorovaSvetlana,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_39,محشي فلفل,Stuffed Peppers,"https://commons.wikimedia.org/wiki/File:Stuffed_red_peppers,_dark_rye_bread,_Rostov-on-Don,_Russia.jpg",CC BY 4.0,Vyacheslav Argenberg,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_40,محشي بصل,Stuffed Onions,"https://commons.wikimedia.org/wiki/File:Onions,cocoyam,yam_and_other_food_stuff.jpg",CC BY-SA 4.0,Daniel Paullll,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_41,لوبيا بالصلصة,Black-Eyed Peas Stew,https://commons.wikimedia.org/wiki/File:Mmm..._black_eyed_peas_with_smoked_hocks_and_corn_bread_(7046315845)_(2).jpg,CC BY 2.0,jeffreyw,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_42,فاصوليا بيضاء,White Bean Stew,https://commons.wikimedia.org/wiki/File:Argentine_red_kidney_bean_stew_with_smoked_sausage_and_white_rice.jpg,CC BY-SA 3.0,Horacio Cambeiro,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_43,فاصوليا خضراء,Green Bean Stew,https://commons.wikimedia.org/wiki/File:Green_bean_stew.jpg,CC BY-SA 4.0,E4024,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_44,قرنبيط مقلي,Fried Cauliflower,https://commons.wikimedia.org/wiki/File:Fried_cauliflower_and_potatoes.jpg,CC BY-SA 3.0,Shadster,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_46,صينية خضار بالفرن,Oven-Baked Vegetables,https://commons.wikimedia.org/wiki/File:Oven_baked_vegetables_-_49859898547.jpg,CC BY-SA 2.0,FitTasteTic,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_48,سمك مقلي,Egyptian Fried Fish,https://commons.wikimedia.org/wiki/File:Fried_fish_on_the_Nile.jpg,CC BY-SA 4.0,Hamadakosh,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
+v19_49,جمبري مشوي,Grilled Shrimp,https://commons.wikimedia.org/wiki/File:Grilled_Shrimp_Skewers.jpg,CC BY-SA 4.0,Eximiousincorp,"PROVISIONAL - KEYWORD MATCH, NEEDS VISUAL REVIEW"
