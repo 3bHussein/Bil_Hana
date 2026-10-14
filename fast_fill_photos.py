@@ -52,12 +52,39 @@ def get(url):
             time.sleep(wait)
 
 def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
+# Explicit searches for recipes with known wrong photos; do not fall back to broad food results.
+priority_queries={
+    'extra2':'chicken potato casserole',
+    'extra13':'tulumba dessert',
+    'extra17':'cooked shrimp prawns',
+    'v19_6':'oatmeal soup',
+    'v19_11':'fava beans eggs',
+    'extra6':'aged cheese tomatoes',
+    'extra7':'tahini sauce dip',
+    'v19_40':'stuffed onions dolma',
+    'v19_42':'white bean stew',
+    'extra15':'Egyptian bread rolls',
+    'v19_52':'basbousa semolina cake',
+}
+priority_terms={
+    'extra2':('chicken','potato'),
+    'extra13':('tulumba',),
+    'extra17':('shrimp','prawn'),
+    'v19_6':('oat','oatmeal'),
+    'v19_11':('fava','beans'),
+    'extra6':('cheese',),
+    'extra7':('tahini',),
+    'v19_40':('stuffed onion','onion dolma'),
+    'v19_42':('white bean',),
+    'extra15':('bread roll','flatbread'),
+    'v19_52':('basbousa','semolina cake'),
+}
 success=0
 for rid,ar,en in recipes:
-    if (rid in reviewed or rid in logged and any(row['recipe_id']==rid and 'KEYWORD MATCH' in row['match_status'] and rid not in ('extra1','extra6','extra7','extra9','seed6') for row in records)) and rid in existing and (ROOT/manifest[rid]).exists(): continue
+    if rid not in priority_queries and (rid in reviewed or rid in logged and any(row['recipe_id']==rid and 'KEYWORD MATCH' in row['match_status'] for row in records)) and rid in existing and (ROOT/manifest[rid]).exists(): continue
     # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
-    query='filetype:bitmap '+en
+    query='filetype:bitmap '+priority_queries.get(rid,en)
     params={'action':'query','generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'30','prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':'900','format':'json'}
     try:
         payload=json.loads(get('https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(params)))
@@ -73,7 +100,9 @@ for rid,ar,en in recipes:
             url=inf.get('thumburl') or inf.get('url','')
             if not url or not re.search(r'\.(jpg|jpeg|png|webp)(\?|$)',url,re.I):continue
             title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
-            if not terms or not any(w in title for w in terms): continue
+            if rid in priority_terms:
+                if not any(w in title for w in priority_terms[rid]): continue
+            elif not terms or not any(w in title for w in terms): continue
             # Never use another named dish or a generic Egyptian-food image as a substitute.
             forbidden=('koshary','kosheri','pyramid','risotto','salmon','chocolate cake','countryfriedsteak','nian gao','logo','plant','collage','food sources')
             if any(word in title for word in forbidden): continue
