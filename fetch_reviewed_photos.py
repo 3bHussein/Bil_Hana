@@ -31,7 +31,14 @@ for recipe,title,expected_author,expected_license in entries:
         print('SAVED',dest)
     except Exception as e: print('NOT DOWNLOADED',recipe,str(e))
 if rows:
-    with credits.open('a',newline='',encoding='utf-8') as f:csv.writer(f).writerows(rows)
+    existing=[]
+    if credits.exists():
+        with credits.open(newline='',encoding='utf-8-sig') as f: existing=list(csv.reader(f))
+    header=['recipe_id','filename','photographer','source_url','license','attribution_required']
+    merged={row[0]:row for row in existing[1:] if len(row)==6}
+    for row in rows: merged[row[0]]=row
+    with credits.open('w',newline='',encoding='utf-8') as f:
+        writer=csv.writer(f);writer.writerow(header);writer.writerows(merged.values())
     import subprocess,sys
     subprocess.run([sys.executable,str(ROOT/'bundle_photos.py')],check=True)
 print('New verified photographs:',len(rows))
