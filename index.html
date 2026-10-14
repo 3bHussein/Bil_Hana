@@ -109,26 +109,32 @@ const photoQueries={'Koshari':'Egyptian koshari','Molokhia':'molokhia Egyptian s
 function photoFallback(target,r){target.replaceChildren();const el=node('div',r.ar);el.className='food-fallback';target.append(el)}
 async function loadFoodPhoto(target,r){
   photoFallback(target,r);
-  // Fast-fill mode: Commons search is provisional and may need manual correction.
+  // Provisional photo search. Never confuse these search results with verified, locally licensed photos.
   let result=photoCache.get(r.id);
   if(result===undefined){
     const query=photoQueries[r.en]||('Egyptian '+r.en+' food');
-    const endpoint='https://commons.wikimedia.org/w/api.php?'+new URLSearchParams({action:'query',generator:'search',gsrsearch:'filetype:bitmap '+query,gsrnamespace:'6',gsrlimit:'6',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'900',format:'json',origin:'*'});
+    const endpoint='https://commons.wikimedia.org/w/api.php?'+new URLSearchParams({action:'query',generator:'search',gsrsearch:'filetype:bitmap '+query,gsrnamespace:'6',gsrlimit:'12',prop:'imageinfo',iiprop:'url|extmetadata',iiurlwidth:'900',format:'json',origin:'*'});
     result=fetch(endpoint).then(x=>{if(!x.ok)throw Error('Photo service unavailable');return x.json()}).then(data=>{
       const pages=Object.values(data.query?.pages||{});
-      const item=pages.find(p=>{const info=p.imageinfo?.[0];return info?.thumburl&&/\.(jpg|jpeg|png|webp)(\?|$)/i.test(info.thumburl)});
-      if(!item)return null;
-      const info=item.imageinfo[0];return {url:info.thumburl,source:info.descriptionurl||'https://commons.wikimedia.org',title:item.title};
+      const items=pages.filter(p=>p.imageinfo?.[0]?.thumburl&&/\.(jpg|jpeg|png|webp)(\?|$)/i.test(p.imageinfo[0].thumburl));
+      if(!items.length)return null;
+      return items.map(p=>({url:p.imageinfo[0].thumburl,source:p.imageinfo[0].descriptionurl||'https://commons.wikimedia.org',title:p.title}));
     }).catch(()=>null);
     photoCache.set(r.id,result);
   }
-  const photo=await result;
-  if(!photo||!target.isConnected)return;
-  const img=document.createElement('img');img.src=photo.url;img.alt=r.ar;img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>photoFallback(target,r);
-  target.replaceChildren(img);
-  const credit=document.createElement('a');credit.className='photo-credit';credit.href=photo.source;credit.target='_blank';credit.rel='noopener noreferrer';credit.textContent='Wikimedia Commons ↗';credit.title=photo.title;target.append(credit);
+  const photos=await result;
+  if(!photos?.length||!target.isConnected)return;
+  let index=0;
+  try{index=Math.max(0,Number(localStorage.getItem('bh-photo-choice:'+r.id)||0))%photos.length}catch(e){}
+  function display(){
+    const p=photos[index];const img=document.createElement('img');img.src=p.url;img.alt=r.ar;img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>{if(index<photos.length-1){index++;display()}else photoFallback(target,r)};
+    const credit=document.createElement('a');credit.className='photo-credit';credit.href=p.source;credit.target='_blank';credit.rel='noopener noreferrer';credit.textContent='Wikimedia Commons ↗';credit.title=p.title;
+    const change=document.createElement('button');change.type='button';change.textContent='🔄';change.title='غيّر الصورة / Change photo';change.setAttribute('aria-label','Change recipe photo');change.style.cssText='position:absolute;top:8px;left:8px;z-index:2;padding:5px 9px;background:#173e32d9;color:white;border-radius:9px';
+    change.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();index=(index+1)%photos.length;try{localStorage.setItem('bh-photo-choice:'+r.id,String(index))}catch(e){}display()});
+    target.replaceChildren(img,credit,change);target.classList.remove('photo-unavailable');
+  }
+  display();
 }
-
 
 const regionalStories={
 'Koshari':['القاهرة','Cairo','من أشهر أكلات الشارع المصري؛ جمع الأرز والعدس والمكرونة مع الصلصة والدقة والبصل المقرمش.','An iconic Egyptian street-food combination of rice, lentils, pasta, tomato sauce, garlic dressing and crispy onions.'],
