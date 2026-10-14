@@ -50,7 +50,7 @@ for rid,ar,en in recipes:
     if rid in reviewed and rid in existing and (ROOT/manifest[rid]).exists(): continue
     # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
-    query='filetype:bitmap '+en
+    query='filetype:bitmap '+(' '.join(en.split()[-2:]) if len(en.split())>2 else en)
     params={'action':'query','generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'30','prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':'900','format':'json'}
     try:
         payload=json.loads(get('https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(params)))
