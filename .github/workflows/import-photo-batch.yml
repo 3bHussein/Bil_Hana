@@ -1,5 +1,9 @@
 name: Import photo batch (10 or 20)
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'REVIEWED-CANDIDATES.csv'
   workflow_dispatch:
     inputs:
       batch_size:
@@ -27,7 +31,7 @@ jobs:
       - run: python -m pip install 'Pillow>=10,<12'
       - name: Import reviewed images only
         env:
-          PHOTO_BATCH_SIZE: ${{ inputs.batch_size }}
+          PHOTO_BATCH_SIZE: ${{ inputs.batch_size || '20' }}
         run: python import_photo_batch.py
       - name: Validate
         run: |
