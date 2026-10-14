@@ -45,8 +45,9 @@ def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
 success=0
 for rid,ar,en in recipes:
     if rid in existing and (ROOT/manifest[rid]).exists(): continue
+    # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
-    query='filetype:bitmap '+en+' food'
+    query='filetype:bitmap '+en
     params={'action':'query','generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'15','prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':'900','format':'json'}
     try:
         payload=json.loads(get('https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(params)))
@@ -75,7 +76,7 @@ for rid,ar,en in recipes:
     except Exception as exc:print('FAILED',rid,str(exc)[:180],flush=True)
     if success and success%15==0:
         print('Checkpoint',success,flush=True)
-    time.sleep(.25)
+    time.sleep(.1)
 with logpath.open('w',encoding='utf-8',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=headers);writer.writeheader();writer.writerows(records)
 new=json.dumps(manifest,ensure_ascii=False)
