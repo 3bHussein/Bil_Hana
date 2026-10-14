@@ -67,7 +67,10 @@ for rid,ar,en in recipes:
             title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
             if not terms or not any(w in title for w in terms): continue
             chosen=(p,inf,meta,lic,url);break
-        if not chosen:print('NO RELEVANT LICENSED MATCH',rid,en,flush=True);continue
+        if not chosen:
+            # Keep existing provisional file rather than replace it with another unrelated photo.
+            print('NO RELEVANT LICENSED MATCH',rid,en,flush=True)
+            continue
         p,inf,meta,lic,url=chosen
         blob=get(url)
         with Image.open(io.BytesIO(blob)) as im:
