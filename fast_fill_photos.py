@@ -47,10 +47,10 @@ def get(url):
 def plain(s):return re.sub(r'<[^>]*>','',html.unescape(s or '')).strip()
 success=0
 for rid,ar,en in recipes:
-    if rid in reviewed and rid in existing and (ROOT/manifest[rid]).exists(): continue
+    if (rid in reviewed or rid in logged and any(row['recipe_id']==rid and 'KEYWORD MATCH' in row['match_status'] for row in records)) and rid in existing and (ROOT/manifest[rid]).exists(): continue
     # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
-    query='filetype:bitmap '+(' '.join(en.split()[-2:]) if len(en.split())>2 else en)
+    query='filetype:bitmap '+en
     params={'action':'query','generator':'search','gsrsearch':query,'gsrnamespace':'6','gsrlimit':'30','prop':'imageinfo','iiprop':'url|extmetadata','iiurlwidth':'900','format':'json'}
     try:
         payload=json.loads(get('https://commons.wikimedia.org/w/api.php?'+urllib.parse.urlencode(params)))
@@ -66,6 +66,7 @@ for rid,ar,en in recipes:
             if not url or not re.search(r'\.(jpg|jpeg|png|webp)(\?|$)',url,re.I):continue
             title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
             if not terms or not any(w in title for w in terms): continue
+            if any(bad in title for bad in ('ingredients','raw ','seeds','plant','logo','map','pyramid','market','advertisement')): continue
             chosen=(p,inf,meta,lic,url);break
         if not chosen:
             # Keep existing provisional file rather than replace it with another unrelated photo.
