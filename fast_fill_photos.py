@@ -87,8 +87,12 @@ priority_exclusions={
     'extra7':('schnitzel','chicken','steak'),
 }
 success=0
+# Audit-only by default: the importer must never silently overwrite existing provisional images.
+# Explicitly set PHOTO_REPLACE_IDS to a comma-separated list of reviewed recipe IDs.
+replace_ids={x.strip() for x in os.environ.get('PHOTO_REPLACE_IDS','').split(',') if x.strip()}
 for rid,ar,en in recipes:
-    if rid not in priority_queries and (rid in reviewed or rid in logged and any(row['recipe_id']==rid and 'KEYWORD MATCH' in row['match_status'] for row in records)) and rid in existing and (ROOT/manifest[rid]).exists(): continue
+    if rid in existing and (ROOT/manifest[rid]).exists() and rid not in replace_ids: continue
+    if rid in reviewed and rid not in replace_ids: continue
     # Recover from intermittent Commons failures by trying a shorter search too.
     # Keep filename and rights metadata together, even for provisional matches.
     query='filetype:bitmap '+priority_queries.get(rid,en)
