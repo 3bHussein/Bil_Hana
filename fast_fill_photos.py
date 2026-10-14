@@ -67,6 +67,12 @@ for rid,ar,en in recipes:
             if not url or not re.search(r'\.(jpg|jpeg|png|webp)(\?|$)',url,re.I):continue
             title=urllib.parse.unquote(p.get('title','')).lower().replace('_',' ')
             if not terms or not any(w in title for w in terms): continue
+            # Never use another named dish or a generic Egyptian-food image as a substitute.
+            forbidden=('koshary','kosheri','pyramid','risotto','salmon','chocolate cake','countryfriedsteak','nian gao','logo','plant','collage','food sources')
+            if any(word in title for word in forbidden): continue
+            # Reject duplicate Commons images already assigned to a different recipe.
+            page_url=inf.get('descriptionurl','')
+            if any(row['commons_page']==page_url and row['recipe_id']!=rid for row in records): continue
             if any(bad in title for bad in ('ingredients','raw ','seeds','plant','logo','map','pyramid','market','advertisement')): continue
             chosen=(p,inf,meta,lic,url);break
         if not chosen:
